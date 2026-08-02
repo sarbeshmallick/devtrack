@@ -1,0 +1,2 @@
+import { Router } from 'express'; import * as c from '../controllers/task.controller.js'; import { authenticate } from '../middlewares/auth.middleware.js';
+export const taskRouter = Router(); taskRouter.use(authenticate); taskRouter.post('/projects/:projectId/tasks', c.createTask); taskRouter.patch('/tasks/:taskId', c.updateTask); taskRouter.patch('/tasks/:taskId/move', c.moveTask); taskRouter.delete('/tasks/:taskId', c.deleteTask);

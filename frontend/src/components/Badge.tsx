@@ -1,0 +1,3 @@
+import type { Priority, TaskStatus } from '../types';
+const statusLabels: Record<TaskStatus, string> = { TODO: 'Todo', IN_PROGRESS: 'In Progress', REVIEW: 'Review', DONE: 'Done' }; const priorityStyles: Record<Priority, string> = { LOW: 'bg-slate-100 text-slate-600', MEDIUM: 'bg-blue-50 text-blue-700', HIGH: 'bg-amber-50 text-amber-700', URGENT: 'bg-rose-50 text-rose-700' };
+export const StatusLabel = ({ status }: { status: TaskStatus }) => <span>{statusLabels[status]}</span>; export const PriorityBadge = ({ priority }: { priority: Priority }) => <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${priorityStyles[priority]}`}>{priority[0] + priority.slice(1).toLowerCase()}</span>;
