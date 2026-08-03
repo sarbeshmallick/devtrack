@@ -1,2 +1,3 @@
-import { Router } from 'express'; import { login, me, register } from '../controllers/auth.controller.js'; import { authenticate } from '../middlewares/auth.middleware.js';
-export const authRouter = Router(); authRouter.post('/register', register); authRouter.post('/login', login); authRouter.get('/me', authenticate, me);
+import { Router } from 'express'; import { rateLimit } from 'express-rate-limit'; import { login, me, register } from '../controllers/auth.controller.js'; import { authenticate } from '../middlewares/auth.middleware.js';
+const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 10, standardHeaders: 'draft-8', legacyHeaders: false, message: { message: 'Too many authentication attempts. Please try again in 15 minutes.' } });
+export const authRouter = Router(); authRouter.post('/register', authLimiter, register); authRouter.post('/login', authLimiter, login); authRouter.get('/me', authenticate, me);

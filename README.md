@@ -174,7 +174,17 @@ cd devtrack
 ## Install Dependencies
 
 ```bash
+corepack enable
 pnpm install
+```
+
+---
+
+## Set Up Environment Variables
+
+```bash
+copy backend\.env.example backend\.env
+copy frontend\.env.example frontend\.env
 ```
 
 ---
@@ -182,7 +192,7 @@ pnpm install
 ## Generate Prisma Client
 
 ```bash
-pnpm --filter backend prisma generate
+pnpm prisma:generate
 ```
 
 ---
@@ -190,7 +200,7 @@ pnpm --filter backend prisma generate
 ## Run Database Migrations
 
 ```bash
-pnpm --filter backend prisma migrate dev
+pnpm prisma:migrate
 ```
 
 ---
@@ -198,7 +208,7 @@ pnpm --filter backend prisma migrate dev
 ## Start Development Server
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ---
@@ -314,6 +324,5 @@ LinkedIn
 (https://www.linkedin.com/in/sarbesh/)
 
 ---
-
 
 
