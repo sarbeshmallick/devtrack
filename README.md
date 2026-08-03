@@ -1,69 +1,311 @@
-# DevTrack
+# 🚀 DevTrack
 
-DevTrack is a lightweight Agile project and task management platform. It provides secure team-based projects, a Kanban workflow, task comments, and a concise dashboard—without introducing unnecessary infrastructure.
+A modern full-stack project management platform inspired by tools like Trello and Jira.
 
-## Stack
+DevTrack enables teams to manage projects, organize tasks, collaborate through comments, and monitor progress from an intuitive dashboard.
 
-- **Frontend:** React, TypeScript, Vite, Tailwind CSS, React Router, Axios, dnd-kit
-- **Backend:** Node.js, Express, TypeScript, Prisma
-- **Database:** PostgreSQL
-- **Authentication:** JSON Web Tokens and bcrypt
+> Built using React, TypeScript, Express, Prisma and PostgreSQL.
 
-## Features
+---
 
-- JWT registration, login, logout, and editable user profile
-- Projects with admin/member roles and email-based team invitations
-- Project CRUD, membership management, and project progress
-- Task CRUD with priority, assignee, due date, and four-stage Kanban workflow
-- Drag-and-drop task movement between Todo, In Progress, Review, and Done
-- Comments, removable only by their author
-- Dashboard metrics, recent tasks, overdue work, and progress visualisation
 
-## Local setup
+## ✨ Features
 
-Prerequisites: Node.js 20+ and PostgreSQL 15+.
+- 🔐 JWT Authentication
+- 👤 User Registration & Login
+- 📁 Create and Manage Projects
+- ✅ Task Management
+- 💬 Task Comments
+- 👥 Project Collaboration
+- 📊 Dashboard Analytics
+- 🔒 Protected Routes
+- ⚡ RESTful API
+- 📦 Prisma ORM
+- 🗄 PostgreSQL Database
+- 🎨 Responsive UI with Tailwind CSS
 
-1. Copy environment templates:
+---
 
-   ```bash
-   cp backend/.env.example backend/.env
-   cp frontend/.env.example frontend/.env
-   ```
 
-2. Create a PostgreSQL database named `devtrack`, then update `backend/.env`.
-3. Install all workspace dependencies:
+## 🎥 Video Walkthrough
 
-   ```bash
-   npm install
-   ```
+https://www.loom.com/share/1f71defa8ad14ce1ab89a95fb7aba8b5
 
-4. Apply the migration and generate Prisma client:
 
-   ```bash
-   npm run prisma:migrate --workspace backend
-   ```
 
-5. Start both applications:
+# 🛠 Tech Stack
 
-   ```bash
-   npm run dev
-   ```
+## Frontend
 
-The frontend runs at `http://localhost:5173`; the API runs at `http://localhost:5000`.
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Axios
 
-## Deployment
+## Backend
 
-Deploy `frontend` to Vercel with `VITE_API_URL` set to the deployed API URL. Deploy `backend` to Render or Railway, configure its environment variables, run `npm run prisma:deploy`, and point `DATABASE_URL` to a Neon PostgreSQL database.
+- Node.js
+- Express
+- TypeScript
+- Prisma ORM
+- JWT Authentication
+- bcrypt
 
-## API overview
+## Database
 
-| Area | Base route |
-| --- | --- |
-| Authentication | `/api/auth` |
-| Current user | `/api/users/me` |
-| Projects and members | `/api/projects` |
-| Tasks | `/api/projects/:projectId/tasks` |
-| Comments | `/api/tasks/:taskId/comments` |
-| Dashboard | `/api/dashboard` |
+- PostgreSQL
 
-All routes except registration and login require `Authorization: Bearer <token>`.
+## Development
+
+- pnpm Workspace
+- Git
+- GitHub
+
+
+---
+
+
+# 🏗 Architecture
+
+```
+React (Frontend)
+        │
+ REST API (Express)
+        │
+ Prisma ORM
+        │
+ PostgreSQL
+```
+
+
+
+---
+
+
+# 📸 Screenshots
+
+## Dashboard
+
+![Dashboard](assets/image.png)
+
+---
+
+## Creating a Project
+
+![Projects](assets/image-1.png)
+
+---
+
+## Project Details
+
+![Project Details](assets/image-2.png)
+
+---
+
+## Team Collaboration
+
+![Members](assets/image-3.png)
+
+---
+
+## Login Page
+
+![Login](assets/image-4.png)
+
+---
+
+
+
+# 📁 Folder Structure
+
+```
+devtrack
+│
+├── backend
+│   ├── prisma
+│   ├── src
+│   │   ├── controllers
+│   │   ├── routes
+│   │   ├── middleware
+│   │   ├── services
+│   │   ├── config
+│   │   └── utils
+│
+├── frontend
+│   ├── src
+│   │   ├── components
+│   │   ├── contexts
+│   │   ├── layouts
+│   │   ├── pages
+│   │   ├── services
+│   │   └── types
+│
+├── package.json
+└── pnpm-workspace.yaml
+```
+
+
+---
+
+
+
+# 🚀 Getting Started
+
+## Clone Repository
+
+```bash
+git clone https://github.com/sarbeshmallick/devtrack.git
+
+cd devtrack
+```
+
+---
+
+## Install Dependencies
+
+```bash
+pnpm install
+```
+
+---
+
+## Generate Prisma Client
+
+```bash
+pnpm --filter backend prisma generate
+```
+
+---
+
+## Run Database Migrations
+
+```bash
+pnpm --filter backend prisma migrate dev
+```
+
+---
+
+## Start Development Server
+
+```bash
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Backend `.env`
+
+```env
+DATABASE_URL=
+
+JWT_SECRET=
+
+PORT=5000
+```
+
+Frontend `.env`
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+
+---
+
+
+
+# 📡 API Overview
+
+All routes except registration and login require
+
+```
+Authorization: Bearer <token>
+```
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | /auth/register | Register User |
+| POST | /auth/login | Login |
+| GET | /dashboard | Dashboard Summary |
+| GET | /projects | Get Projects |
+| POST | /projects | Create Project |
+| GET | /tasks | Get Tasks |
+| POST | /tasks | Create Task |
+| GET | /profile | User Profile |
+
+
+---
+
+
+# 🔐 Authentication
+
+Authentication is implemented using JWT.
+
+After login, the backend returns a signed token.
+
+Every protected request requires:
+
+```
+Authorization: Bearer <JWT Token>
+```
+
+
+---
+
+
+# 🎯 Future Improvements
+
+- Drag & Drop Kanban Board
+- Real-time Collaboration
+- Notifications
+- File Attachments
+- Task Labels
+- Activity Timeline
+- Search & Filtering
+- Docker Support
+- GitHub Actions CI/CD
+- Email Notifications
+
+
+---
+
+
+# 📚 What I Learned
+
+This project helped me gain hands-on experience with:
+
+- Building REST APIs
+- JWT Authentication
+- Express Middleware
+- Prisma ORM
+- PostgreSQL
+- React Context API
+- Protected Routes
+- Full-stack application architecture
+- Git Workflows
+- Monorepo development
+
+
+---
+
+
+# 👨‍💻 Author
+
+**Sarbesh Mallick**
+
+GitHub
+
+https://github.com/sarbeshmallick
+
+LinkedIn
+
+(https://www.linkedin.com/in/sarbesh/)
+
+---
+
+
+

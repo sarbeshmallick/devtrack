@@ -6,6 +6,6 @@ dist
 backend/src/generated
 outputs/
 work/
-assets/
 images/
 examples/
+endpoints.txt 
