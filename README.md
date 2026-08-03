@@ -11,29 +11,34 @@ DevTrack enables teams to manage projects, organize tasks, collaborate through c
 
 ## ✨ Features
 
-- 🔐 JWT Authentication
-- 👤 User Registration & Login
-- 📁 Create and Manage Projects
-- ✅ Task Management
-- 💬 Task Comments
-- 👥 Project Collaboration
-- 📊 Dashboard Analytics
-- 🔒 Protected Routes
-- ⚡ RESTful API
-- 📦 Prisma ORM
-- 🗄 PostgreSQL Database
-- 🎨 Responsive UI with Tailwind CSS
+-  JWT Authentication
+-  User Registration & Login
+-  Create and Manage Projects
+-  Task Management
+-  Task Comments
+-  Project Collaboration
+-  Dashboard Analytics
+-  Protected Routes
+-  RESTful API
+-  Prisma ORM
+-  PostgreSQL Database
+-  Responsive UI with Tailwind CSS
+
 
 ---
 
 
 ## 🎥 Video Walkthrough
 
-https://www.loom.com/share/1f71defa8ad14ce1ab89a95fb7aba8b5
 
+https://www.loom.com/share/40d07786778c4ca6bf14861808c625f2
+
+
+---
 
 
 # 🛠 Tech Stack
+
 
 ## Frontend
 
@@ -44,6 +49,7 @@ https://www.loom.com/share/1f71defa8ad14ce1ab89a95fb7aba8b5
 - React Router
 - Axios
 
+
 ## Backend
 
 - Node.js
@@ -53,9 +59,11 @@ https://www.loom.com/share/1f71defa8ad14ce1ab89a95fb7aba8b5
 - JWT Authentication
 - bcrypt
 
+
 ## Database
 
 - PostgreSQL
+
 
 ## Development
 
